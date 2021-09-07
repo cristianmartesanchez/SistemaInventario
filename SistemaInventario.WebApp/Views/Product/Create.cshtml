@@ -1,0 +1,71 @@
+﻿@model SistemaInventario.Core.DTOs.ProductDto
+@{
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="float-left">Agregar producto</h5>
+    </div>
+
+    <div class="card-body">
+
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { }))
+        {
+            @Html.AntiForgeryToken();
+            <div class="form-group row">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.ProductName, "Producto")
+                    @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control", @placeholder = "Producto" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.Barcode, "Codigo Barra")
+                    @Html.TextBoxFor(model => model.Barcode, new { @class = "form-control", @placeholder = "Codigo Barra" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.Description, "Descripción")
+                    @Html.TextBoxFor(model => model.Description, new { @rows = "4", @class = "form-control", @placeholder = "Descripcion" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.UnitOfMeasureId, "Unidad de Medida")
+                    @Html.DropDownListFor(model => model.UnitOfMeasureId, (IEnumerable<SelectListItem>)ViewBag.UnitOfMeasure, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.DefaultBuyingPrice, "Precio de compra")
+                    @Html.TextBoxFor(model => model.DefaultBuyingPrice, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.DefaultSellingPrice, "Precio de venta")
+                    @Html.TextBoxFor(model => model.DefaultSellingPrice, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.Stock, "Stock")
+                    @Html.TextBoxFor(model => model.Stock, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+            <div class="float-right">
+                <a href="@Url.Action("Index")" class="btn btn-danger" title="Guardar">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+        }
+
+
+
+    </div>
+</div>
+
+

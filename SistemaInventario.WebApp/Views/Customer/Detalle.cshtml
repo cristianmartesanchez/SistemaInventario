@@ -1,0 +1,46 @@
+﻿@model SistemaInventario.Core.DTOs.CustomerDto
+@{
+
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="float-left">Detalle cliente</h5>        
+    </div>
+
+    <div class="card-body">
+        <table id="table_view" class="table table-hover table-detail-view table-bordered w-100">
+            <thead>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="w-25"><strong>Nombres</strong></th>
+                    <td>@Model.CustomerName</td>
+                    <th class="w-25"><strong>Tipo Cliente</strong></th>
+                    <td>@Model.CustomerTypeId</td>
+                </tr>
+                <tr>
+                    <th class="w-25"><strong>Telefono</strong></th>
+                    <td>@Model.Phone</td>
+                    <th class="w-25"><strong>Email</strong></th>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <th class="w-25"><strong>Dirección</strong></th>
+                    <td colspan="3">@Model.Address</td>
+                </tr>
+                <tr>
+                    <th class="w-25"><strong>Ciudad</strong></th>
+                    <td>@Model.City</td>
+                    <th class="w-25"><strong>Provincia</strong></th>
+                    <td>@Model.State</td>
+                </tr>
+                <tr>
+                    <th class="w-25"><strong>Codigo Postal</strong></th>
+                    <td>@Model.ZipCode</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

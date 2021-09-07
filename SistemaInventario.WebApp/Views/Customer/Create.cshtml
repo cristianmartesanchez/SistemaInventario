@@ -1,0 +1,69 @@
+﻿@model SistemaInventario.Core.DTOs.CustomerDto
+@{
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="float-left">Agregar cliente</h5>
+    </div>
+    
+    <div class="card-body">
+
+        @using (Html.BeginForm("Create", "Customer", FormMethod.Post, new { }))
+        {
+            @Html.AntiForgeryToken();
+            <div class="form-group row">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.CustomerName, "Nombres")
+                    @Html.TextBoxFor(model => model.CustomerName, new { @class = "form-control", @placeholder = "Nombres" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => model.CustomerTypeId, "Tipos Cliente")
+                    @Html.DropDownListFor(model => model.CustomerTypeId, (IEnumerable<SelectListItem>)ViewBag.CustomerType, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.Phone, "Telefono")
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @placeholder = "Telefono" })
+                </div>
+                <div class="col-md-8">
+                    @Html.LabelFor(model => model.Email, "Email")
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    @Html.LabelFor(model => model.Address, "Dirección")
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Dirección" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.City, "Ciudad")
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "Ciudad" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.State, "Provincia")
+                    @Html.TextBoxFor(model => model.State, new { @class = "form-control", @placeholder = "Provincia" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.ZipCode, "Codigo Postal")
+                    @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", @placeholder = "Codigo Postal" })
+                </div>
+            </div>
+
+            <div class="float-right">
+                <a href="@Url.Action("Index")" class="btn btn-danger" title="Guardar">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+
+        }
+
+
+
+    </div>
+</div>
+
+
